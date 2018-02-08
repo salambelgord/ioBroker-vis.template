@@ -6,24 +6,20 @@
 <script id="tplSplitsysBtn"
         type="text/ejs"
         class="vis-tpl"
-        data-vis-prev='<img style="width:322px; height:458px" src="widgets/splitsys/img/rem_body.png"></img>'
-        data-vis-attrs="oid_play/id/onPlaySplitsysChanged;oid_next/id;oid_prev/id;oid_stop/id;"
+        data-vis-prev='<img style="width:100px; height:150px" src="widgets/splitsys/img/rem_body.png"></img>'
+        data-vis-attrs="oid/id;myColor/color;htmlText/text;"
+        data-vis-set="splitsys"
         data-vis-type="val"
         data-vis-beta="true"
         data-vis-name="SplitSys">
-    <div class="vis-widget <%== this.data.attr('class') %>" style="width:322px; height:458px" id="<%= this.data.attr('wid') %>" data-vis-resizable='{"disabled":true, "handles":"e"}'>
-    <map id="consoleMap" name="consoleMap">
-     
-        <area class="winamp-btn" data-id="stop"     shape="circle" coords="108,125,11" alt="Stop">
-        <area class="winamp-btn" data-id="pause"    shape="circle" coords="78,125,11"  alt="Pause">
-        <area class="winamp-btn" data-id="play"     shape="circle" coords="48,125,11"  alt="Play">
-    </map>
-    <div class="">
-            <img src="widgets/splitsys/img/rem_body.png" usemap="#consoleMap" width="354" height="144" border="0">
-            
-            
-            </div>
-            </div>
-       <% vis.binds.players.createWidgetWinampPlayer(this.data.wid, this.view, this.data, this.style); %>
-	</div>
+    <div class="vis-widget <%== this.data.attr('class') %>" style="width:230px; height:210px;" id="<%= this.data.attr('wid') %>" >
+        <div class="template-class vis-widget-body <%== this.data.attr('class') %>" style="padding:2px" >
+            OID: <%= this.data.attr('oid') %><br>
+            OID value: <%== vis.states[this.data.attr('oid') + '.val'] %><br>
+			Color: <span style="color: <%= this.data.attr('myColor') %>"><%= this.data.attr('myColor') %></span><br>
+			extraAttr: <%== this.data.attr('extraAttr') %><br>
+			Browser instance: <%= vis.instance %><br>
+			htmlText: <textarea readonly style="width: calc(100% - 10px)"><%== this.data.attr('htmlText') %></textarea><br>
+        </div>
+    </div>
 </script>
